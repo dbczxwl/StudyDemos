@@ -4,8 +4,15 @@ import java.util.Arrays;
 
 public class Questions {
 	public static void main(String[] args) {
-		// Q001.ask();
-		// Q002.ask();
+
+		System.out.println("Q001 Answer:");
+		Q001.ask();
+
+		System.out.println("Q002 Answer:");
+		Q002.ask();
+
+		System.out.println("Q003 Answer:");
+		Q003.ask();
 	}
 }
 
@@ -108,6 +115,38 @@ class Q002 {
 		@Override
 		public String toString() {
 			return "Person [name=" + name + ", age=" + age + "]";
+		}
+	}
+}
+
+/**
+ * @author Administrator
+ *         Q003这个提问考察的是代码中return和finally的执行顺序
+ * 
+ *         ①try代码块中代码运行到return语句之后，先将return压入栈，并寻找是否有finally代码块
+ *         ②如果找到finally代码块，执行finally里边的语句，之后将return弹出栈
+ *         ③如果finally中还有return，由于finally中的return后压入栈并会先弹出，所以会覆盖try中的return(catch中的也会被覆盖)
+ */
+class Q003 {
+
+	/**
+	 * finally中的语句和return语句那个先执行？
+	 */
+	public static void ask() {
+		System.out.println(returnAndFinally());
+	}
+
+	@SuppressWarnings("finally")
+	private static String returnAndFinally() {
+		try {
+			System.out.println("Code in try.");
+			return "return_try";
+		} catch (Exception e) {
+			System.out.println("Code in catch.");
+			return "return_catch";
+		} finally {
+			System.out.println("Code in finally.");
+			// return "return_finally";
 		}
 	}
 }
