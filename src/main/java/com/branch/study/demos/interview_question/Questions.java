@@ -136,7 +136,6 @@ class Q003 {
 		System.out.println(returnAndFinally());
 	}
 
-	@SuppressWarnings("finally")
 	private static String returnAndFinally() {
 		try {
 			System.out.println("Code in try.");
