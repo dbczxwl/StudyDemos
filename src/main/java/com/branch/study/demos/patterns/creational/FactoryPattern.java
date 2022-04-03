@@ -3,6 +3,7 @@ package com.branch.study.demos.patterns.creational;
 /**
  * 关于简单工厂在末尾补充说明
  * 关于静态工厂在末尾补充说明
+ * 关于抽象工厂在末尾补充说明
  * 
  * @author Administrator
  * 
@@ -12,21 +13,20 @@ public class FactoryPattern {
 	public static void main(String[] args) {
 		CarFactory carFactory = CarFactory.newInstance();
 		AirplaneFactory airplaneFactory = AirplaneFactory.newInstance();
-		carFactory.produce().move();
-		airplaneFactory.produce().move();
+		Car car = carFactory.produce();
+		car.move();
+		Airplane airplane = airplaneFactory.produce();
+		airplane.move();
 	}
 
 }
 
 interface Factory {
-	// 买入原材料
+	// 采购
 	void purchase();
 
-	// 生产
-	Product produce();
-
-	// 存货
-	void inventory();
+	// 生产交通工具
+	Vehicle produce();
 
 	// 销售
 	void sell();
@@ -47,18 +47,14 @@ class CarFactory implements Factory {
 
 	@Override
 	public void purchase() {
-		System.out.println("购买生产汽车的配件");
+		System.out.println("采购生产汽车的原材料");
 	}
 
+	// 汽车工厂关联汽车类，汽车类实现了Vehicle这种产品接口
 	@Override
-	public Product produce() {
+	public Car produce() {
 		System.out.println("生产汽车");
 		return new Car();
-	}
-
-	@Override
-	public void inventory() {
-		System.out.println("存储汽车");
 	}
 
 	@Override
@@ -81,18 +77,14 @@ class AirplaneFactory implements Factory {
 
 	@Override
 	public void purchase() {
-		System.out.println("购买生产飞机的配件");
+		System.out.println("采购生产飞机的原材料");
 	}
 
+	// 飞机工厂关联飞机类，飞机类实现了Vehicle这种产品接口
 	@Override
-	public Product produce() {
+	public Airplane produce() {
 		System.out.println("生产飞机");
 		return new Airplane();
-	}
-
-	@Override
-	public void inventory() {
-		System.out.println("存储飞机");
 	}
 
 	@Override
@@ -102,11 +94,11 @@ class AirplaneFactory implements Factory {
 
 }
 
-interface Product {
+interface Vehicle {
 	void move();
 }
 
-class Airplane implements Product {
+class Airplane implements Vehicle {
 
 	@Override
 	public void move() {
@@ -115,7 +107,7 @@ class Airplane implements Product {
 
 }
 
-class Car implements Product {
+class Car implements Vehicle {
 
 	@Override
 	public void move() {
@@ -135,4 +127,9 @@ class Car implements Product {
  * PS：在包装类中parse方法与valueOf的区别在于，prase返回值为基本类型，而valueOf返回值为包装类型
  * getInstance和newInstance，区别在于newInstance体现在每个生成的对象都是新的，而getInstance可能是单例
  * getType和newType，在用A工厂创建B对象的时候使用，需要经B对象的类型作为参数传入，其他同getInstance和newInstance
+ */
+
+/*
+ * 抽象工厂和工厂没有本质区别，区别只在于抽象工厂的工厂类中关联了多种产品接口的实现类
+ * 例如：carFactory有produceCar方法（返回值实现自Vehicle），同时也有produceBread方法（假如返回值实现自Food）
  */
