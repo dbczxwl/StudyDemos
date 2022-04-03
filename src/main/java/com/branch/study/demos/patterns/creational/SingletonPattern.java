@@ -17,7 +17,25 @@ import java.io.Serializable;
 public class SingletonPattern {
 
 	public static void main(String[] args) {
-
+		SingletonHungry sh1 = SingletonHungry.getInstance();
+		System.out.println(sh1);
+		SingletonHungry sh2 = SingletonHungry.getInstance();
+		System.out.println(sh2);
+		
+		SingletonLazy sl1 = SingletonLazy.getInstance();
+		System.out.println(sl1);
+		SingletonLazy sl2 = SingletonLazy.getInstance();
+		System.out.println(sl2);
+		
+		SingletonInnerClass sic1 = SingletonInnerClass.getInstance();
+		System.out.println(sic1);
+		SingletonInnerClass sic2 = SingletonInnerClass.getInstance();
+		System.out.println(sic2);
+		
+		Object obj1 = SingletonEnum.getInstance();
+		System.out.println(obj1);
+		Object obj2 = SingletonEnum.getInstance();
+		System.out.println(obj2);
 	}
 
 }
