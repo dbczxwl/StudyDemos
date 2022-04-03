@@ -4,9 +4,9 @@ package com.branch.study.demos.patterns.creational;
  * 关于简单工厂在末尾补充说明
  * 关于静态工厂在末尾补充说明
  * 关于抽象工厂在末尾补充说明
+ * 工厂对象类工厂接口，产品类实现产品接口，工厂类依赖产品类（方法的返回值返回产品类对象）
  * 
  * @author Administrator
- * 
  */
 public class FactoryPattern {
 
@@ -50,7 +50,7 @@ class CarFactory implements Factory {
 		System.out.println("采购生产汽车的原材料");
 	}
 
-	// 汽车工厂关联汽车类，汽车类实现了Vehicle这种产品接口
+	// 汽车工厂依赖汽车类，汽车类实现了Vehicle这种产品接口
 	@Override
 	public Car produce() {
 		System.out.println("生产汽车");
@@ -80,7 +80,7 @@ class AirplaneFactory implements Factory {
 		System.out.println("采购生产飞机的原材料");
 	}
 
-	// 飞机工厂关联飞机类，飞机类实现了Vehicle这种产品接口
+	// 飞机工厂依赖飞机类，飞机类实现了Vehicle这种产品接口
 	@Override
 	public Airplane produce() {
 		System.out.println("生产飞机");
@@ -130,6 +130,6 @@ class Car implements Vehicle {
  */
 
 /*
- * 抽象工厂和工厂没有本质区别，区别只在于抽象工厂的工厂类中关联了多种产品接口的实现类
+ * 抽象工厂和工厂没有本质区别，区别只在于抽象工厂的工厂类中依赖了多种产品接口的实现类
  * 例如：carFactory有produceCar方法（返回值实现自Vehicle），同时也有produceBread方法（假如返回值实现自Food）
  */
