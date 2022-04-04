@@ -13,6 +13,7 @@ import java.io.Serializable;
  * 单例存在的问题，只有一个实例，属性状态难以确定（当被多个调用者修改时），所以单例通常为无状态的工具类
  * 单例出现多实例的特例：分布式系统，或者一个系统中通过多个classLoader来加载单例对象
  * 推荐使用枚举和饿汉模式，理由是内存普遍比较充裕，并且懒汉模式需要DCL，或者静态内部类做优化，增加复杂度，而且对反射攻击不好处理
+ * 用途举例：Runtime类的对象是一个单例，保证内存该对象中只有一个
  * 
  * @author Administrator
  */
@@ -44,6 +45,8 @@ public class SingletonPattern {
 
 // 饿汉模式，可用（这里假设对象可以序列化，因为反序列化会破坏单例）
 class SingletonHungry implements Serializable, Cloneable {
+	private static final long serialVersionUID = 1L;
+
 	private final static SingletonHungry INSTANCE = new SingletonHungry();
 
 	private SingletonHungry() {

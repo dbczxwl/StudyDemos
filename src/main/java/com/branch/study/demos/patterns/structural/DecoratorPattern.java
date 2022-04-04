@@ -5,8 +5,9 @@ package com.branch.study.demos.patterns.structural;
  * 扩展一个类可以通过，继承或者关联
  * 从类图上看是Decorator接口对Component接口的扩展
  * Decorator类继承Component接口并通过传入Component的另一个实现类，拷贝或部分拷贝原实现类中的功能(希望调用者不发觉改变了类)
- * Decorator设置为abstract，可以更方便装饰类的扩展，Decorator者中关联的Component的接口而非实现类
- * Java io流中FilterInputStream抽象类的子类通过传入其他InputStream，进行功能扩展
+ * Decorator类设置为abstract，可以更方便装饰类的扩展，Decorator类中关联的Component的接口而非实现类
+ * 与代理模式对比（类图一模一样）：装饰侧重于功能的扩展（常常可以多次包装），而代理侧重于访问控制（间接调用），并保留被代理类的完整功能
+ * 用途举例：Java io流中FilterInputStream抽象类的子类通过传入其他InputStream，进行功能扩展
  * 
  * @author Administrator
  */
@@ -42,8 +43,9 @@ class OldPhone implements Phone {
 	}
 }
 
-// Decorator，可以看到这里关联的是Phone接口，保证低耦合度
+// Decorator
 abstract class SmartPhone implements Phone {
+	// 可以看到这里关联的是Phone接口，保证低耦合度
 	private Phone phone;
 
 	SmartPhone(Phone phone) {

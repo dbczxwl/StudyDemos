@@ -5,7 +5,8 @@ package com.branch.study.demos.patterns.creational;
  * 关于简单工厂在末尾补充说明
  * 关于静态工厂在末尾补充说明
  * 关于抽象工厂在末尾补充说明
- * 工厂对象类工厂接口，产品类实现产品接口，工厂类依赖产品类（方法的返回值返回产品类对象）
+ * 工厂类实现工厂接口，产品类实现产品接口，工厂类依赖产品类（方法的返回值返回产品类对象）
+ * 用途举例：java集合部分，Collection为工厂接口，Iterator为产品接口
  * 
  * @author Administrator
  */
