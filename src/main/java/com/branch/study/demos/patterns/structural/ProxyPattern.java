@@ -71,7 +71,7 @@ class ConcreteSubjectDefault implements Subject {
 // CglibSubject
 class CglibSubject {
 	public void request() {
-		System.out.println("在没有实现接口的情况下使用cglib代理，执行被代理对象的操作");
+		System.out.println("在被代理类没有实现接口的情况下使用cglib代理，执行被代理对象的操作");
 	}
 }
 
