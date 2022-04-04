@@ -3,6 +3,7 @@ package com.branch.study.demos.patterns.creational;
 import java.io.Serializable;
 
 /**
+ * Singleton：单例模式
  * 构造方法私有化，通过静态变量接收构造方法返回值
  * 饿汉模式，在声明静态单例变量时初始化，线程安全，内存存在额外开销
  * 懒汉模式，在使用时初始化，非线程安全，节省内存，需要通过双重检查锁缩小枷锁范围
@@ -12,6 +13,7 @@ import java.io.Serializable;
  * 单例存在的问题，只有一个实例，属性状态难以确定（当被多个调用者修改时），所以单例通常为无状态的工具类
  * 单例出现多实例的特例：分布式系统，或者一个系统中通过多个classLoader来加载单例对象
  * 推荐使用枚举和饿汉模式，理由是内存普遍比较充裕，并且懒汉模式需要DCL，或者静态内部类做优化，增加复杂度，而且对反射攻击不好处理
+ * 
  * @author Administrator
  */
 public class SingletonPattern {
@@ -21,17 +23,17 @@ public class SingletonPattern {
 		System.out.println(sh1);
 		SingletonHungry sh2 = SingletonHungry.getInstance();
 		System.out.println(sh2);
-		
+
 		SingletonLazy sl1 = SingletonLazy.getInstance();
 		System.out.println(sl1);
 		SingletonLazy sl2 = SingletonLazy.getInstance();
 		System.out.println(sl2);
-		
+
 		SingletonInnerClass sic1 = SingletonInnerClass.getInstance();
 		System.out.println(sic1);
 		SingletonInnerClass sic2 = SingletonInnerClass.getInstance();
 		System.out.println(sic2);
-		
+
 		Object obj1 = SingletonEnum.getInstance();
 		System.out.println(obj1);
 		Object obj2 = SingletonEnum.getInstance();

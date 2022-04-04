@@ -1,6 +1,7 @@
 package com.branch.study.demos.patterns.creational;
 
 /**
+ * Factory：工厂模式
  * 关于简单工厂在末尾补充说明
  * 关于静态工厂在末尾补充说明
  * 关于抽象工厂在末尾补充说明
