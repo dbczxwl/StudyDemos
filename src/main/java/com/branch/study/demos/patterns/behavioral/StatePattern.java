@@ -1,9 +1,13 @@
 package com.branch.study.demos.patterns.behavioral;
 
-public class Strategy {
+/**
+ * State：状态模式
+ * 
+ * @author Administrator
+ */
+public class StatePattern {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 

@@ -1,9 +1,13 @@
 package com.branch.study.demos.patterns.behavioral;
 
-public class State {
+/**
+ * Iterator：迭代子模式
+ * 
+ * @author Administrator
+ */
+public class IteratorPattern {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 

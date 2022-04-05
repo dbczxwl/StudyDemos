@@ -1,9 +1,13 @@
 package com.branch.study.demos.patterns.behavioral;
 
-public class Iterator {
+/**
+ * Observer：观察者模式
+ * 
+ * @author Administrator
+ */
+public class ObserverPattern {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 
