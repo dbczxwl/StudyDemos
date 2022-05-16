@@ -1,7 +1,5 @@
 package com.branch.study.demos.interview_question;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
